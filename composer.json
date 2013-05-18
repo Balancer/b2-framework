@@ -1,0 +1,14 @@
+{
+    "name": "balancer/b2-blib",
+    "description": "B2 PHP Framework libs.",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Balancer",
+            "email": "balancer@balancer.ru"
+        }
+    ],
+    "require": {
+
+    }
+}

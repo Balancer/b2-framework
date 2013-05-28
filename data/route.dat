@@ -1,2 +1,2 @@
-GET		/				b2test_main
+GET		/				b2f_main
 GET		/_b2/admin/?	b2f_admin_main

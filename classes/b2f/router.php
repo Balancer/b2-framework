@@ -1,5 +1,7 @@
 <?php
 
+// Используем готовый сторонний роутер https://github.com/deceze/Kunststube-Router
+
 use Kunststube\Router\Router,
     Kunststube\Router\Route;
 

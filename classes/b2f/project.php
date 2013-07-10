@@ -6,7 +6,7 @@ class b2f_project extends b2_object
 
 	function project_dir()
 	{
-		return dirname(dirname(__DIR__));
+		return dirname(dirname(dirname($this->class_file())));
 	}
 
 	function file($file_relative_name)

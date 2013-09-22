@@ -1,9 +1,14 @@
 Заготовка под набор базовых библиотек будущего фреймворка B2
 ============================================================
 
-### Установка для тестов:
+Инсталляция
+-----------
+
+### Для тестов:
 
     composer create-project balancer/b2-framework=dev-default --prefer-dist
 
-### Установка для разработки:
+### Для разработки:
+
     composer create-project balancer/b2-framework=dev-default
+

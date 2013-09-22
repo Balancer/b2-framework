@@ -17,7 +17,16 @@
 	},
 
     "require": {
-		"balancer/b2-core": "dev-default"
+		"balancer/b2-core": "dev-default",
+        "balancer/bors-ext": "dev-default",
+        "slim/slim": "*",
+        "kunststube/router": "*"
+    },
+
+    "require-dev": {
+        "balancer/b2-sites-kinobaza": "dev-default",
+        "balancer/b2-project-demo": "dev-default",
+        "balancer/b2-app-simple-blog": "dev-default"
     },
 
     "autoload": {

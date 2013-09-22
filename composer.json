@@ -8,8 +8,9 @@
             "email": "balancer@balancer.ru"
         }
     ],
-    "require": {
 
+    "require": {
+		"balancer/bors-core": "dev-default"
     },
 
     "autoload": {

@@ -1,6 +1,7 @@
 {
     "name": "balancer/b2-framework",
     "description": "B2 PHP Framework libs.",
+    "keywords": ["framework", "php"],
     "license": "GPL-3.0",
     "authors": [
         {
@@ -8,6 +9,12 @@
             "email": "balancer@balancer.ru"
         }
     ],
+
+	"support": {
+		"issues": "https://bitbucket.org/Balancer/bors-core/issues",
+		"forum": "http://www.balancer.ru/support/viewforum.php?id=60",
+		"source": "https://bitbucket.org/Balancer/b2-framework"
+	},
 
     "require": {
 		"balancer/b2-core": "dev-default"

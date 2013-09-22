@@ -10,7 +10,7 @@
     ],
 
     "require": {
-		"balancer/bors-core": "dev-default"
+		"balancer/b2-core": "dev-default"
     },
 
     "autoload": {

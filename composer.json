@@ -16,6 +16,8 @@
 		"source": "https://bitbucket.org/Balancer/b2-framework"
 	},
 
+	"minimum-stability": "dev",
+
     "require": {
 		"balancer/b2-core": "dev-default",
         "balancer/bors-ext": "dev-default",

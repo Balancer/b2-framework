@@ -40,9 +40,15 @@ class b2f_router extends b2_object
 		$path = parse_url($uri, PHP_URL_PATH);
 		try {
 			$object = $this->router->route($path);
-		} catch(Exception $e)
+		}
+		catch(Exception $e)
 		{
 			$object = NULL;
+		}
+
+		if(!$object)
+		{
+			$object = bors_load_uri($path);
 		}
 
 		return $object;

@@ -22,7 +22,9 @@
 		"balancer/b2-core": "dev-default",
         "balancer/bors-ext": "dev-default",
         "slim/slim": "2.*",
-        "kunststube/router": "0.*"
+        "kunststube/router": "0.*",
+        "easybook/geshi": "*",
+        "smarty/smarty": "3.*"
     },
 
     "require-dev": {

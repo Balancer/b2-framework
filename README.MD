@@ -12,3 +12,5 @@
 
     composer create-project balancer/b2-framework=dev-default
 
+### Запуск тестовой платформы
+	php ./run.php

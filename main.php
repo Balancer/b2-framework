@@ -24,6 +24,15 @@ $result = NULL;
 		if(!is_object($object))
 			return $b2->go($object);
 
+		$processed = $object->pre_show();
+		if($processed === true)
+		{
+			if(config('debug_header_trace'))
+				@header('X-Bors-show-pre-show: Yes');
+
+			return true;
+		}
+
 		$result = $object->direct_content();
 	}
 

@@ -8,10 +8,12 @@ if(!defined('COMPOSER_ROOT'))
 	// ... либо уровнем выше, если старый bors-core
 	elseif(file_exists(dirname(__DIR__).'/composer/vendor/autoload.php'))
 		define('COMPOSER_ROOT', dirname(__DIR__).'/composer');
+	elseif(file_exists(($composer = dirname(dirname(dirname(__DIR__)))).'/vendor/autoload.php'))
+		define('COMPOSER_ROOT', $composer);
 }
 
 if(empty($GLOBALS['bors.composer.class_loader']))
-	$GLOBALS['bors.composer.class_loader'] = require_once COMPOSER_ROOT.'/vendor/autoload.php';
+	$GLOBALS['bors.composer.class_loader'] = require COMPOSER_ROOT.'/vendor/autoload.php';
 
 if(!defined('BORS_SITE'))
 	define('BORS_SITE', __DIR__);

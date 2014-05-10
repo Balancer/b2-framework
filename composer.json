@@ -16,8 +16,6 @@
 		"source": "https://bitbucket.org/Balancer/b2-framework"
 	},
 
-	"minimum-stability": "dev",
-
     "require": {
 		"balancer/b2-core": "@dev",
 		"balancer/bors-core": "@dev",
@@ -26,12 +24,6 @@
         "kunststube/router": "0.*",
         "easybook/geshi": "*",
         "smarty/smarty": "3.*"
-    },
-
-    "require-dev": {
-        "balancer/b2-sites-kinobaza": "dev-default",
-        "balancer/b2-project-demo": "dev-default",
-        "balancer/b2-app-simple-blog": "dev-default"
     },
 
     "autoload": {

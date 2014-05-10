@@ -19,8 +19,9 @@
 	"minimum-stability": "dev",
 
     "require": {
-		"balancer/b2-core": "dev-default",
-        "balancer/bors-ext": "dev-default",
+		"balancer/b2-core": "@dev",
+		"balancer/bors-core": "@dev",
+        "balancer/bors-ext": "@dev",
         "slim/slim": "2.*",
         "kunststube/router": "0.*",
         "easybook/geshi": "*",

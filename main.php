@@ -9,6 +9,10 @@ $GLOBALS['b2.stat']['start_microtime'] = microtime(true);
 // Инициализация фреймворка
 require_once(__DIR__.'/init.php');
 
+use Tracy\Debugger;
+Debugger::enable(Debugger::DEVELOPMENT);
+Debugger::$strictMode = true;
+
 $uri = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 
 $b2 = new b2;

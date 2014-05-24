@@ -23,7 +23,8 @@
         "slim/slim": "2.*",
         "kunststube/router": "0.*",
         "easybook/geshi": "*",
-        "smarty/smarty": "3.*"
+        "smarty/smarty": "3.*",
+        "tracy/tracy": "*"
     },
 
     "autoload": {

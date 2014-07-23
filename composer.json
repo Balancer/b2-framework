@@ -16,14 +16,16 @@
 		"source": "https://bitbucket.org/Balancer/b2-framework"
 	},
 
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+
     "require": {
-		"balancer/b2-core": "@dev",
-		"balancer/bors-core": "@dev",
-        "balancer/bors-ext": "@dev",
+		"balancer/b2-core": "*",
+		"balancer/bors-core": "*",
+        "balancer/bors-ext": "*",
         "slim/slim": "2.*",
         "kunststube/router": "0.*",
-        "easybook/geshi": "*",
-        "smarty/smarty": "!=3.1.17"
+        "easybook/geshi": "*"
     },
 
     "autoload": {

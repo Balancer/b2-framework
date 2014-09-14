@@ -11,17 +11,23 @@ require_once(__DIR__.'/init.php');
 
 // http://phpdebugbar.com/docs/rendering.html
 // https://github.com/maximebf/php-debugbar
-$GLOBALS['debugbar'] = new DebugBar\StandardDebugBar();
-$GLOBALS['debugbar_renderer'] = $GLOBALS['debugbar']->getJavascriptRenderer();
-bors_page::add_template_data_array('head_append', $GLOBALS['debugbar_renderer']->renderHead());
+if(class_exists('DebugBar\StandardDebugBar'))
+{
+	$GLOBALS['debugbar'] = new DebugBar\StandardDebugBar();
+	$GLOBALS['debugbar_renderer'] = $GLOBALS['debugbar']->getJavascriptRenderer();
+	bors_page::add_template_data_array('head_append', $GLOBALS['debugbar_renderer']->renderHead());
+}	
 
 //require('/home/balancer/bors/xxx/b2-loader/vendor/autoload.php');
 use Tracy\Debugger;
-Debugger::enable(Debugger::DEVELOPMENT);
-Debugger::$strictMode = true;
-//Debugger::dump(time());
-//Debugger::log('log:'.time());
-//b2d::d(time());
+if(class_exists('Tracy\Debugger'))
+{
+	Debugger::enable(Debugger::DEVELOPMENT);
+	Debugger::$strictMode = true;
+	//Debugger::dump(time());
+	//Debugger::log('log:'.time());
+	//b2d::d(time());
+}
 
 $uri = "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
 

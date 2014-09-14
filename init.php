@@ -16,7 +16,12 @@ if(empty($GLOBALS['bors.composer.class_loader']))
 	$GLOBALS['bors.composer.class_loader'] = require COMPOSER_ROOT.'/vendor/autoload.php';
 
 if(!defined('BORS_SITE'))
-	define('BORS_SITE', __DIR__);
+{
+	if(file_exists($d = $_SERVER['DOCUMENT_ROOT'].'/../bors-site'))
+		define('BORS_SITE', $d);
+	else
+		define('BORS_SITE', __DIR__);
+}
 
 if(file_exists($f = COMPOSER_ROOT.'/vendor/balancer/bors-core/init.php'))
 	require_once $f;

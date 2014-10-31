@@ -21,9 +21,17 @@ class b2f
 
 	var $projects = array();
 
-	function register_project($project_class, $host = NULL, $path = NULL)
+	function register_project($project_class, $host = '*', $path = '')
 	{
-		$this->projects[] = b2::instance()->load($project_class, NULL);
+		$key = "$project_class-$host-$path";
+		if(empty($key))
+		{
+			$this->projects[$key] = array(
+				'host' => $host,
+				'path' => $path,
+				'project' => b2::instance()->load($project_class, NULL),
+			);
+		}
 
 		return $this;
 	}
@@ -42,9 +50,10 @@ class b2f
 
 		echo "$url<br/>";
 
-		foreach($this->projects as $project)
+		foreach($this->projects as $project_data)
 		{
-			echo "<li>{$project}</li>";
+			extract($project_data);
+			echo "<li>{$project}, </li>";
 //			$object = $project->find_by_url($url);
 		}
 

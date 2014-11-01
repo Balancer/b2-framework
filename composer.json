@@ -23,6 +23,7 @@
 		"balancer/b2-core": "*",
 		"balancer/bors-core": "*",
         "balancer/bors-ext": "*",
+        "symfony/routing": "*",
         "slim/slim": "2.*",
         "kunststube/router": "0.*",
         "easybook/geshi": "*"

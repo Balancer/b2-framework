@@ -51,6 +51,8 @@ class b2f
 
 		echo "$url<br/>";
 
+		$routes = new Symfony\Component\Routing\RouteCollection();
+
 		foreach($this->projects as $project_data)
 		{
 			extract($project_data);
@@ -67,14 +69,23 @@ class b2f
 
 					foreach(array_unique(array_merge($map, $bors_map)) as $r)
 					{
-						echo "$r<br/>";
+						if(!preg_match('!^(.*?)\s*=>\s*(.*?)$!', $r, $m))
+							bors_throw("Unknown route format: ".$r);
+						$route = new Symfony\Component\Routing\Route($m[1], array('view' => $m[2]));
+						$routes->add('route_name', $route);
+//						echo "$r<br/>";
 					}
 				}
 			}
-			echo "<li>{$project}, {}</li>";
+//			echo "<li>{$project}, {}</li>";
 //			$object = $project->find_by_url($url);
 		}
 
 		echo 'ok '.bors_time::now();
+
+		$context = new Symfony\Component\Routing\RequestContext($_SERVER['REQUEST_URI']);
+		$matcher = new Symfony\Component\Routing\Matcher\UrlMatcher($routes, $context);
+		$parameters = $matcher->match($_SERVER['REQUEST_URI']);
+		var_dump($parameters);
 	}
 }

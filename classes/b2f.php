@@ -24,7 +24,7 @@ class b2f
 	function register_project($project_class, $host = '*', $path = '')
 	{
 		$key = "$project_class-$host-$path";
-		if(empty($key))
+		if(empty($this->projects[$key]))
 		{
 			$this->projects[$key] = array(
 				'host' => $host,
@@ -38,6 +38,7 @@ class b2f
 
 	function run()
 	{
+		global $bors_map;
 //		var_dump($_SERVER);
 //		$url = http_build_url(array(
 //			'scheme' => 'http', //FIXME!
@@ -53,7 +54,24 @@ class b2f
 		foreach($this->projects as $project_data)
 		{
 			extract($project_data);
-			echo "<li>{$project}, </li>";
+			$class_file = $project->class_file();
+			if(preg_match('!^(.+)/classes/'.str_replace('_', '/', $project->class_name()).'.php$!', $class_file, $m))
+			{
+				$bors_site = $m[1];
+				if(file_exists($f = $bors_site.'/url_map.php'))
+				{
+					$bors_map = array();
+					$map = array();
+
+					require_once($f);
+
+					foreach(array_unique(array_merge($map, $bors_map)) as $r)
+					{
+						echo "$r<br/>";
+					}
+				}
+			}
+			echo "<li>{$project}, {}</li>";
 //			$object = $project->find_by_url($url);
 		}
 

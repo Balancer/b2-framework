@@ -71,9 +71,13 @@ class b2f
 					{
 						if(!preg_match('!^(.*?)\s*=>\s*(.*?)$!', $r, $m))
 							bors_throw("Unknown route format: ".$r);
-						$route = new Symfony\Component\Routing\Route($m[1], array('view' => $m[2]));
+
+						$pattern = rtrim($m[1], '/');
+						$view = $m[2];
+						$route = new Symfony\Component\Routing\Route($pattern, array('controller' => $view));
+//						$route = new Symfony\Component\Routing\Route('/tools/search', array('controller' => $view));
 						$routes->add('route_name', $route);
-//						echo "$r<br/>";
+						var_dump([$pattern, $route->getPath(), $view]);
 					}
 				}
 			}
@@ -83,9 +87,10 @@ class b2f
 
 		echo 'ok '.bors_time::now();
 
-		$context = new Symfony\Component\Routing\RequestContext($_SERVER['REQUEST_URI']);
+		$context = new Symfony\Component\Routing\RequestContext();
 		$matcher = new Symfony\Component\Routing\Matcher\UrlMatcher($routes, $context);
-		$parameters = $matcher->match($_SERVER['REQUEST_URI']);
+//		$parameters = $matcher->match(rtrim($_SERVER['REQUEST_URI'], '/'));
+		$parameters = $matcher->match('/tools/search');
 		var_dump($parameters);
 	}
 }

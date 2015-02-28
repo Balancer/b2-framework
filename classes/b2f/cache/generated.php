@@ -58,6 +58,7 @@ class b2f_cache_generated extends bors_object
 		$cache_file = $this->root_cache_dir().'/'.$this->arg('year').'/'.$this->hash.'.'.$this->arg('ext');
 		mkpath(dirname($cache_file));
 		$this->generator->set_attr('save_to', $cache_file);
+		@header('Content-type: ' . $this->generator->content_type());
 		return $this->generator->content();
 	}
 }

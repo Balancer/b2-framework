@@ -1,6 +1,6 @@
 <?php
 
-class b2_composer_plugin extends Composer\Installer\LibraryInstaller
+class b2f_composer_plugin extends Composer\Installer\LibraryInstaller
 {
 	public function supports($packageType)
 	{

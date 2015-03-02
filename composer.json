@@ -20,7 +20,10 @@
 	"minimum-stability": "dev",
 
     "require": {
-		"balancer/b2-core": "*",
+		"balancer/b2-core": "*"
+    },
+
+    "require-disabled": {
 		"balancer/bors-core": "*",
         "balancer/bors-ext": "*",
         "symfony/routing": "*",
